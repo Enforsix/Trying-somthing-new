@@ -14,23 +14,25 @@ init () {
     };
     image.src = "/images/maps/DemoLower.png";
 
-    const x = 0;
-    const y = 0;
-    const hero = new Image();
-    hero.onload = () => {
-        this.ctx.drawImage(
-            hero, 
-            0, // left cut
-            0, // top cut
-            32, // with of cut
-            32, // hight of cut
-            x,
-            y,
-            32,
-            32
-            )
-    }
-    hero.src = "/images/characters/people/hero.png";
+    //Place some game objects!
+    const hero = new GameObject({
+        x:5,
+        y:6,
+
+    })
+    const npc1 = new GameObject({
+        x:7,
+        y:9,
+       src: "/images/characters/people/npc1.png"         
+    })
+
+    setTimeout(()=> {
+    hero.sprite.draw(this.ctx);
+    npc1.sprite.draw(this.ctx);
+
+    }, 200)
+    
+
 
 }
 
